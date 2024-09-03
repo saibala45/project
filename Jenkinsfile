@@ -27,7 +27,7 @@ pipeline {
         }
         stage('docker deploy'){
             steps{
-                sh 'docker container rm -f userservicerepo'
+                sh 'docker container rm -f greetingnew'
                 sh 'docker run --name greetingnew -itd -p 9999:9999 9894851315/greetingnew:${BUILD_NUMBER}'
                 echo 'docker container is created'
                 echo 'docker container is running'
