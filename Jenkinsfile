@@ -21,14 +21,15 @@ pipeline {
         stage('docker image'){
             steps{
              
-                sh 'docker build -t 9894851315/finalassess:${BUILD_NUMBER} .'
+                sh 'docker build -t finalassess:${BUILD_NUMBER} -f Dockerfile.'
                 echo 'docker image is created'
+               
             }
         }
         stage('docker deploy'){
             steps{
                 sh 'docker container rm -f finalassess'
-                sh 'docker run --name finalassess -itd -p 9999:9999 9894851315/finalassess:${BUILD_NUMBER}'
+                sh 'docker run --name finalassess -itd -p 9999:9999 finalassess:${BUILD_NUMBER}'
                 echo 'docker container is created'
                 echo 'docker container is running'
             }
