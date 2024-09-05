@@ -5,7 +5,7 @@ pipeline {
       stage('Git Checkout') {
             steps {
                 script {
-                    git url: 'https://github.com/saibala45/greetingnew.git'
+                    git url: 'https://github.com/saibala45/finalassess.git'
                       echo 'git checkout is done code pulled from github to jenkins workspace'
                 }
             }
@@ -21,14 +21,14 @@ pipeline {
         stage('docker image'){
             steps{
              
-                sh 'docker build -t 9894851315/greetingnew:${BUILD_NUMBER} .'
+                sh 'docker build -t 9894851315/finalassess:${BUILD_NUMBER} .'
                 echo 'docker image is created'
             }
         }
         stage('docker deploy'){
             steps{
-                sh 'docker container rm -f greetingnew'
-                sh 'docker run --name greetingnew -itd -p 9999:9999 9894851315/greetingnew:${BUILD_NUMBER}'
+                sh 'docker container rm -f finalassess'
+                sh 'docker run --name finalassess -itd -p 9999:9999 9894851315/finalassess:${BUILD_NUMBER}'
                 echo 'docker container is created'
                 echo 'docker container is running'
             }

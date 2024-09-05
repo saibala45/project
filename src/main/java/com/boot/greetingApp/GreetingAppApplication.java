@@ -11,12 +11,18 @@ public class GreetingAppApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(GreetingAppApplication.class, args);
 	}
-    @GetMapping("/welcome")
-    public String welcome() {
-    	return "welcome to spring boot greeting app";
+	@GetMapping("/studentone")
+	public String studentone() {
+		return "congrats sai for your first day";
+	}
+	@GetMapping("/studenttwo")
+	public String studenttwo() {
+		return "congrats bala for your first day";
+	}
+	@GetMapping("/studentthree")
+	public String studentthree() {
+		return "congrats sarmeena for your first day";
+	}
+	
     }
-    @GetMapping("/greeting")
-    public String greeting() {
-    	return "greetings from spring boot greeting app";
-    }
-}
+
